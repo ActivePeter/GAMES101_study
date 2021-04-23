@@ -1,10 +1,6 @@
-这个项目用来记录我学习GAMES101系列课程的作业
+这个项目用来记录我学习GAMES101系列课程的作业 并汇总资料。
 
-This project is used to record my homework of games101 series courses
-
-并汇总资料。
-
-and Summary information and resources.
+This project is used to record my homework of games101 series courses and Summary information and resources.
 
 ------
 
