@@ -1,12 +1,12 @@
-这个项目用来记录我学习GAMES101系列课程的作业 并汇总资料。
+### 这个项目用来记录我学习GAMES101系列课程的作业 并汇总资料。
 
 This project is used to record my homework of games101 series courses and Summary information and resources.
 
-------
+---
 
 项目会在windows下使用 **vscode+cmake+Visual Studio 15 (2017)的工具链 **进行编写
 
-The project will be written under windows using **vscode + cmake + Visual Studio 15 (2017) tool chain**.  
+The project will be written under windows using **vscode + cmake + Visual Studio 15 (2017) tool chain**.
 
 ### bilibili:
 
