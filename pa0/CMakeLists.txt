@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(Rasterizer)
+project(pa0)
 
 # IF (NOT CMAKE_BUILD_TYPE)
 #     set(CMAKE_BUILD_TYPE "Release" CACHE STRING
@@ -41,7 +41,7 @@ set (eigen3_dir ${3RD_DIR}/eigen-3.3.9)
 include_directories (${eigen3_dir})
 
 # add_executable(Rasterizer main.cpp rasterizer.hpp rasterizer.cpp Triangle.hpp Triangle.cpp)
-target_link_libraries(Rasterizer
+target_link_libraries(pa0
     debug ${CV_LIBD_DIR}
     # )
 # target_link_libraries(Rasterizer 
