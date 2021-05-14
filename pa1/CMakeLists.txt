@@ -37,6 +37,7 @@ include_directories (${CV_INC})
 
 #eigen3
 set (eigen3_dir ${3RD_DIR}/eigen-3.3.9)
+message( ${eigen3_dir})
 # add_subdirectory(${eigen3_dir})
 include_directories (${eigen3_dir})
 

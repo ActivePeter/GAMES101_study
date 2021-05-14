@@ -1,10 +1,12 @@
 {
+    
     "configurations": [
         {
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/src",
-                "${workspaceFolder}/../third/eigen-3.3.9"
+                "${workspaceFolder}/../third/eigen-3.3.9",
+                "${config:my.opencv.path}"
             ],
             "defines": [
                 "_DEBUG",

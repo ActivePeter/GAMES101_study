@@ -10,7 +10,7 @@ project(pa0)
 # find_package(OpenCV REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
-set (3RD_DIR ${PROJECT_SOURCE_DIR}/third)
+set (3RD_DIR ${PROJECT_SOURCE_DIR}/../third)
 
 #项目源码
 set (SRC_DIR ${PROJECT_SOURCE_DIR}/src)
