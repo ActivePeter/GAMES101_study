@@ -44,20 +44,30 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
     return projection;
 }
 
-int main(int argc, const char** argv)
+int main(int argc, const char **argv)
 {
     float angle = 0;
     bool command_line = false;
     std::string filename = "output.png";
-
-    if (argc >= 3) {
+    // std::cout << "frame count: " << 1 << '\n';
+    if (argc >= 3)
+    {
         command_line = true;
         angle = std::stof(argv[2]); // -r by default
-        if (argc == 4) {
+        if (argc == 4)
+        {
             filename = std::string(argv[3]);
         }
         else
+        {
+
             return 0;
+        }
+    }
+    else
+    {
+        std::cout << "not valid params" << std::endl;
+        return 0;
     }
 
     rst::rasterizer r(700, 700);
@@ -74,7 +84,8 @@ int main(int argc, const char** argv)
     int key = 0;
     int frame_count = 0;
 
-    if (command_line) {
+    if (command_line)
+    {
         r.clear(rst::Buffers::Color | rst::Buffers::Depth);
 
         r.set_model(get_model_matrix(angle));
@@ -90,7 +101,8 @@ int main(int argc, const char** argv)
         return 0;
     }
 
-    while (key != 27) {
+    while (key != 27)
+    {
         r.clear(rst::Buffers::Color | rst::Buffers::Depth);
 
         r.set_model(get_model_matrix(angle));
@@ -106,13 +118,36 @@ int main(int argc, const char** argv)
 
         std::cout << "frame count: " << frame_count++ << '\n';
 
-        if (key == 'a') {
+        if (key == 'a')
+        {
             angle += 10;
         }
-        else if (key == 'd') {
+        else if (key == 'd')
+        {
             angle -= 10;
         }
     }
 
     return 0;
 }
+// #include <cmath>
+// #include <Eigen/Core>
+// #include <Eigen/Dense>
+// #include <iostream>
+// // #include "transforms/base.h"
+
+// int main()
+// {
+//     auto angle = 45.0;
+//     auto x = 1;
+//     auto y = 2;
+//     auto trans = 1;
+//     Eigen::Vector3f point;
+//     point << 2, 1, 1;
+//     std::cout << point << "\r\nafter rotated " << angle
+//               << " and translate " << x << "," << y
+//               << std::endl;
+//     std::cout << trans * point << std::endl;
+
+//     return 0;
+// }

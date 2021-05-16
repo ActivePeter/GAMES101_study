@@ -1,1 +1,6 @@
 build/
+pa1/conan.lock
+pa1/conanbuildinfo.cmake
+pa1/conanbuildinfo.txt
+pa1/conaninfo.txt
+pa1/graph_info.json

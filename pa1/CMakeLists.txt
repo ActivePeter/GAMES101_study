@@ -12,6 +12,11 @@ project(pa1_Rasterizer)
 set(CMAKE_CXX_STANDARD 17)
 set (3RD_DIR ${PROJECT_SOURCE_DIR}/../third)
 
+#conan
+include(${PROJECT_SOURCE_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
+
 #项目源码
 set (SRC_DIR ${PROJECT_SOURCE_DIR}/src)
 include_directories (${SRC_DIR})
@@ -43,7 +48,9 @@ include_directories (${eigen3_dir})
 
 # add_executable(Rasterizer main.cpp rasterizer.hpp rasterizer.cpp Triangle.hpp Triangle.cpp)
 target_link_libraries(pa1_Rasterizer
-    debug ${CV_LIBD_DIR}
-    # )
-# target_link_libraries(Rasterizer 
-    optimized ${CV_LIB_DIR})
+#     debug ${CV_LIBD_DIR}
+#     # )
+# # target_link_libraries(Rasterizer 
+#     optimized ${CV_LIB_DIR}
+${CONAN_LIBS}
+    )
