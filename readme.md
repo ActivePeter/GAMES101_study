@@ -18,4 +18,5 @@ The project will be written under windows using **vscode + cmake + Visual Studio
 
 ### Related Website：
 
-[作业0发布公告 – 计算机图形学与混合现实研讨会 (games-cn.org)](http://games-cn.org/forums/topic/graphics-intro-hw0/)
+[往期作业汇总帖 – 计算机图形学与混合现实研讨会 (games-cn.org)](http://games-cn.org/forums/topic/allhw/)http://games-cn.org/forums/topic/graphics-intro-hw0/)
+

@@ -81,7 +81,8 @@
 			"xstring": "cpp",
 			"xtr1common": "cpp",
 			"xtree": "cpp",
-			"xutility": "cpp"
+			"xutility": "cpp",
+			"unordered_set": "cpp"
 		},
 		"my.opencv.path": "E:/pa_files/thd_libs/opencv450/build/include",
 		"editor.formatOnSave": true,

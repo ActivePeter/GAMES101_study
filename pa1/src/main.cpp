@@ -21,8 +21,12 @@ Eigen::Matrix4f get_view_matrix(Eigen::Vector3f eye_pos)
 
 Eigen::Matrix4f get_model_matrix(float rotation_angle)
 {
-    Eigen::Matrix4f model = Eigen::Matrix4f::Identity();
-
+    Eigen::Matrix4f model; // = Eigen::Matrix4f::Identity();
+    rotation_angle = rotation_angle / 180 * MY_PI;
+    model << cosf(rotation_angle), -sinf(rotation_angle), 0, 0,
+        sinf(rotation_angle), cosf(rotation_angle), 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1;
     // TODO: Implement this function
     // Create the model matrix for rotating the triangle around the Z axis.
     // Then return it.
@@ -33,15 +37,43 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
 Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
                                       float zNear, float zFar)
 {
+    float n, f; //z<- near far
+    n = zNear;
+    f = zFar;
+
+    eye_fov = eye_fov / 180 * MY_PI;
+
     // Students will implement this function
+    float t = tanf(eye_fov);
+    float b = -t; //y<- top bottom
 
-    Eigen::Matrix4f projection = Eigen::Matrix4f::Identity();
+    float l, r; //x-> left right
+    r = t * aspect_ratio;
+    l = -r;
 
+    Eigen::Matrix4f projection, translation, scale; //= Eigen::Matrix4f::Identity();
+
+    translation << 1, 0, 0, -(r + l) / 2,
+        0, 1, 0, -(t + b) / 2,
+        0, 0, 1, -(n + f) / 2 - 100,
+        0, 0, 0, 1;
+
+    scale << 2 / (r - l), 0, 0, 0,
+        0, 2 / (t - b), 0, 0,
+        0, 0, 2 / (n - f), 0,
+        0, 0, 0, 1;
+
+    projection << n, 0, 0, 0,
+        0, n, 0, 0,
+        0, 0, n + f, -n * f,
+        0, 0, 1, 0;
+
+    // translation<<1,0,0,-
     // TODO: Implement this function
     // Create the projection matrix for the given parameters.
     // Then return it.
 
-    return projection;
+    return scale * translation * projection;
 }
 
 int main(int argc, const char **argv)
@@ -49,7 +81,7 @@ int main(int argc, const char **argv)
     float angle = 0;
     bool command_line = false;
     std::string filename = "output.png";
-    // std::cout << "frame count: " << 1 << '\n';
+    std::cout << "prog start" << '\n';
     if (argc >= 3)
     {
         command_line = true;
@@ -59,15 +91,7 @@ int main(int argc, const char **argv)
             filename = std::string(argv[3]);
         }
         else
-        {
-
             return 0;
-        }
-    }
-    else
-    {
-        std::cout << "not valid params" << std::endl;
-        return 0;
     }
 
     rst::rasterizer r(700, 700);
@@ -130,24 +154,3 @@ int main(int argc, const char **argv)
 
     return 0;
 }
-// #include <cmath>
-// #include <Eigen/Core>
-// #include <Eigen/Dense>
-// #include <iostream>
-// // #include "transforms/base.h"
-
-// int main()
-// {
-//     auto angle = 45.0;
-//     auto x = 1;
-//     auto y = 2;
-//     auto trans = 1;
-//     Eigen::Vector3f point;
-//     point << 2, 1, 1;
-//     std::cout << point << "\r\nafter rotated " << angle
-//               << " and translate " << x << "," << y
-//               << std::endl;
-//     std::cout << trans * point << std::endl;
-
-//     return 0;
-// }
