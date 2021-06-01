@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.json": "jsonc",
+        "iostream": "cpp",
+        "ostream": "cpp"
+    },
+    // "cmake.generator": "Visual Studio 15 Win64",2017
+    "cmake.generator": "Visual Studio 16 2019",
+    "cmake.parallelJobs": 30,
+
+}
